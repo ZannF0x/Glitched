@@ -7,4 +7,7 @@
     <string name="entrar">Entrar</string>
     <string name="ainda_nao_tem_conta">Ainda não tem uma conta?</string>
     <string name="cadastre_se">Cadastre-se!</string>
+    <string name="insira_e_mail_e_senha_para_efetuar_o_cadastro">Insira um E-mail e Senha válidos para efetuar o cadastro</string>
+    <string name="senha_com_no_m_nimo_6_digitos">Senha com no mínimo 6 digitos</string>
+    <string name="cadastrar">Cadastrar</string>
 </resources>
