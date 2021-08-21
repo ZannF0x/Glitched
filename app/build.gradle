@@ -34,6 +34,10 @@ android {
     }
 }
 
+//Google Service Firebase
+apply plugin: 'com.android.application'
+apply plugin: 'com.google.gms.google-services'
+
 dependencies {
 
     implementation 'androidx.core:core-ktx:1.6.0'
@@ -44,7 +48,14 @@ dependencies {
     androidTestImplementation 'androidx.test.ext:junit:1.1.3'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.4.0'
 
+    // ViewModel
     implementation 'androidx.lifecycle:lifecycle-extensions:2.2.0'
     implementation "androidx.activity:activity-ktx:1.3.1"
     implementation "androidx.fragment:fragment-ktx:1.3.6"
+
+    //Firebase Bom
+    implementation platform('com.google.firebase:firebase-bom:28.4.0')
+
+    //Firebase Auth
+    implementation 'com.google.firebase:firebase-auth'
 }

@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "54716954936",
+    "project_id": "glitched-98e4d",
+    "storage_bucket": "glitched-98e4d.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:54716954936:android:09d59f17779af26139a9cd",
+        "android_client_info": {
+          "package_name": "com.zannardyapps.glitched"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "54716954936-3ijc51tlp6ugsk2glh26m7b408pmem33.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAp26v8XvmfL2M6awbnKOcz_41k8VUBmrY"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "54716954936-3ijc51tlp6ugsk2glh26m7b408pmem33.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
