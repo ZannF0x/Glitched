@@ -21,6 +21,27 @@ class FormRegister : AppCompatActivity() {
 
         initComponentsLayout()
 
+        buttonEntrar.setOnClickListener {
+
+            when {
+
+                editTextEmail.text.isEmpty() -> {
+                    editTextEmail.error = "Erro! Preencha o campo de E-mail."
+                    if (editTextEmail.text.isNotEmpty()) editTextEmail.error = null
+                }
+
+                editTextSenha.text.isEmpty() -> {
+                    editTextSenha.error = "Erro! Preencha o campo de Senha."
+                    if (editTextSenha.text.isNotEmpty()) editTextSenha.error = null
+                }
+
+                else -> {
+                    // TODO: 20/08/2021 Implementer FirebaseAuth
+                }
+            }
+
+        }
+
     }
 
     private fun initComponentsLayout(){
