@@ -10,6 +10,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Glitched">
         <activity
+            android:name=".screenstore.StoreScreen"
+            android:exported="true" />
+        <activity
             android:name=".forms.FormRegister"
             android:exported="true" />
         <activity
