@@ -10,4 +10,8 @@
     <string name="insira_e_mail_e_senha_para_efetuar_o_cadastro">Insira um E-mail e Senha válidos para efetuar o cadastro</string>
     <string name="senha_com_no_m_nimo_6_digitos">Senha com no mínimo 6 digitos</string>
     <string name="cadastrar">Cadastrar</string>
+    <string name="sair">Sair</string>
+    <string name="options">Opções</string>
+    <string name="menu">Menu</string>
+    <string name="configura_es">Configurações</string>
 </resources>
