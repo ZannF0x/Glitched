@@ -14,4 +14,6 @@
     <string name="options">Opções</string>
     <string name="menu">Menu</string>
     <string name="configura_es">Configurações</string>
+    <string name="icone_usu_rio_checado">icone usuário checado</string>
+    <string name="usuario_logado">Usuário Logado!</string>
 </resources>

@@ -4,13 +4,16 @@ import android.content.Intent
 import android.graphics.Color
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.view.View
 import android.widget.Button
 import android.widget.EditText
 import android.widget.TextView
 import androidx.activity.viewModels
+import androidx.appcompat.app.AlertDialog
 import com.google.android.material.snackbar.Snackbar
 import com.google.firebase.FirebaseNetworkException
 import com.google.firebase.auth.FirebaseAuthInvalidCredentialsException
+import com.zannardyapps.glitched.R
 import com.zannardyapps.glitched.databinding.ActivityFormLoginBinding
 import com.zannardyapps.glitched.forms.viewmodels.LoginViewModel
 import com.zannardyapps.glitched.screenstore.StoreScreen
@@ -33,6 +36,11 @@ class FormLogin : AppCompatActivity() {
 
         initComponentsLayout()
         observeLiveData()
+
+        binding.textLogin.setOnClickListener {
+            initAlertDialog()
+        }
+
 
         buttonEntrar.setOnClickListener {
 
@@ -70,6 +78,8 @@ class FormLogin : AppCompatActivity() {
         textViewCadastre = binding.textCadastrese
     }
 
+    // Method Observe Livedata
+
     private fun observeLiveData(){
         var message: String = ""
         // LOGADO
@@ -105,6 +115,18 @@ class FormLogin : AppCompatActivity() {
         }
     }
 
+    // Method Custom AlertDialog
+
+    private fun initAlertDialog(){
+        val view: View = View.inflate(this, R.layout.dialog_view_windows, null)
+        val builder = AlertDialog.Builder(this)
+        builder.setView(view)
+        val dialog = builder.create()
+        dialog.show()
+        dialog.window?.setBackgroundDrawableResource(android.R.color.transparent)
+    }
+
+    //methods open Activities
 
     private fun openFormRegister(){
         val intent = Intent(this, FormRegister::class.java)

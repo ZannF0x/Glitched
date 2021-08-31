@@ -19,12 +19,12 @@
         <ImageView
             android:id="@+id/imageLogoApp"
             android:layout_width="match_parent"
-            android:layout_height="230dp"
+            android:layout_height="200dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             android:contentDescription="@string/app_name"
-            android:src="@drawable/logo_glitched_img"/>
+            android:src="@drawable/game"/>
 
         <TextView
             android:id="@+id/textLogin"
@@ -151,7 +151,7 @@
             android:layout_height="wrap_content"
             android:gravity="center"
             android:text="@string/cadastre_se"
-            android:textColor="@color/roxo"
+            android:textColor="@color/green_01"
             android:textSize="20sp"
             android:textStyle="bold"
             app:layout_constraintEnd_toEndOf="parent"
