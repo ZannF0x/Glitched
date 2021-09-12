@@ -15,6 +15,7 @@ class LoginViewModel(
     private var firebaseRepository: FirebaseRepository = FirebaseRepository(auth)
 ): ViewModel() {
 
+
     private val _currentUser = MutableLiveData<FirebaseUser>(auth.currentUser)
     val currentUser : LiveData<FirebaseUser> = _currentUser
 

@@ -15,7 +15,6 @@
         android:background="@color/black"
         tools:context=".forms.FormLogin">
 
-
         <ImageView
             android:id="@+id/imageLogoApp"
             android:layout_width="match_parent"

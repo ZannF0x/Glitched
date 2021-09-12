@@ -7,7 +7,7 @@
 
 
     <LinearLayout
-        android:layout_width="wrap_content"
+        android:layout_width="290dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="30dp"
         android:layout_marginBottom="50dp"
@@ -38,16 +38,44 @@
             android:textColor="@color/black"
             android:textStyle="bold" />
 
+        <TextView
+            android:id="@+id/emailLogado"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:text=""
+            android:textStyle="italic"
+            android:textSize="15sp"
+            android:textColor="@color/black"/>
+
         <Button
-            android:layout_width="match_parent"
+            android:id="@+id/buttonDialogEntrar"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/entrar"
+            android:layout_gravity="center"
             android:layout_marginStart="10dp"
             android:layout_marginEnd="10dp"
             android:layout_marginTop="10dp"
             android:background="@drawable/shape_button"
             app:backgroundTint="@color/black"
             app:icon="@drawable/ic_login"
+            app:iconPadding="5dp"
+            app:iconGravity="textEnd"
+            tools:ignore="SpeakableTextPresentCheck"/>
+
+        <Button
+            android:id="@+id/buttonDialogCancelar"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:text="@string/cancelar"
+            android:layout_marginStart="10dp"
+            android:layout_marginEnd="10dp"
+            android:layout_marginTop="10dp"
+            android:background="@drawable/shape_button"
+            app:backgroundTint="@color/black"
+            app:icon="@drawable/ic_cancel"
             app:iconPadding="5dp"
             app:iconGravity="textEnd"
             tools:ignore="SpeakableTextPresentCheck"/>

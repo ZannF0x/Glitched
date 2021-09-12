@@ -16,4 +16,5 @@
     <string name="configura_es">Configurações</string>
     <string name="icone_usu_rio_checado">icone usuário checado</string>
     <string name="usuario_logado">Usuário Logado!</string>
+    <string name="cancelar">Cancelar</string>
 </resources>

@@ -15,8 +15,13 @@ import com.google.firebase.FirebaseNetworkException
 import com.google.firebase.auth.FirebaseAuthInvalidCredentialsException
 import com.zannardyapps.glitched.R
 import com.zannardyapps.glitched.databinding.ActivityFormLoginBinding
+import com.zannardyapps.glitched.datastore.DataStoreMenager
 import com.zannardyapps.glitched.forms.viewmodels.LoginViewModel
 import com.zannardyapps.glitched.screenstore.StoreScreen
+import kotlinx.coroutines.DelicateCoroutinesApi
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.GlobalScope
+import kotlinx.coroutines.launch
 
 class FormLogin : AppCompatActivity() {
     private lateinit var binding: ActivityFormLoginBinding
@@ -37,11 +42,6 @@ class FormLogin : AppCompatActivity() {
         initComponentsLayout()
         observeLiveData()
 
-        binding.textLogin.setOnClickListener {
-            initAlertDialog()
-        }
-
-
         buttonEntrar.setOnClickListener {
 
             when{
@@ -60,6 +60,14 @@ class FormLogin : AppCompatActivity() {
                     viewModel.loginUser(
                         editTextEmail.text.toString(),
                         editTextSenha.text.toString())
+
+                    //Save Note
+                   GlobalScope.launch {
+                       DataStoreMenager.saveNote(
+                           this@FormLogin,
+                           "email",
+                           editTextEmail.text.toString())
+                   }
                 }
 
             }
@@ -71,29 +79,17 @@ class FormLogin : AppCompatActivity() {
         }
     }
 
-    private fun initComponentsLayout(){
-        editTextEmail = binding.editTextEmail
-        editTextSenha = binding.editTextSenha
-        buttonEntrar = binding.buttonEntrar
-        textViewCadastre = binding.textCadastrese
-    }
-
     // Method Observe Livedata
 
     private fun observeLiveData(){
         var message: String = ""
         // LOGADO
         viewModel.currentUser.observe(this){ currentUser ->
-           if (currentUser != null){
-               message = "Usuário Logado!"
-               Snackbar.make(binding.root, message, Snackbar.LENGTH_INDEFINITE)
-                   .setBackgroundTint(Color.WHITE)
-                   .setTextColor(Color.BLACK)
-                   .setAction("Entrar") {
-                       openStoreScreen()
-                   }.show()
-
-           }
+            if (currentUser != null){
+                initAlertDialog {
+                    openStoreScreen()
+                }
+            }
         }
         // ERRO
         viewModel.error.observe(this){ error ->
@@ -117,13 +113,38 @@ class FormLogin : AppCompatActivity() {
 
     // Method Custom AlertDialog
 
-    private fun initAlertDialog(){
+    private fun initAlertDialog(action: () -> Unit ){
         val view: View = View.inflate(this, R.layout.dialog_view_windows, null)
         val builder = AlertDialog.Builder(this)
         builder.setView(view)
         val dialog = builder.create()
         dialog.show()
         dialog.window?.setBackgroundDrawableResource(android.R.color.transparent)
+
+        val buttonEntrar: Button = view.findViewById(R.id.buttonDialogEntrar)
+        val buttonCancelar: Button = view.findViewById(R.id.buttonDialogCancelar)
+        val textEmailSaved: TextView = view.findViewById(R.id.emailLogado)
+
+        GlobalScope.launch(Dispatchers.IO) {
+            val noteValueSaved = DataStoreMenager.getToNote(this@FormLogin, "email")
+            GlobalScope.launch(Dispatchers.Main) {
+                textEmailSaved.text = noteValueSaved.toString()
+            }
+        }
+
+        buttonEntrar.setOnClickListener {
+            action()
+        }
+        buttonCancelar.setOnClickListener {
+            dialog.dismiss()
+        }
+    }
+
+    private fun initComponentsLayout(){
+        editTextEmail = binding.editTextEmail
+        editTextSenha = binding.editTextSenha
+        buttonEntrar = binding.buttonEntrar
+        textViewCadastre = binding.textCadastrese
     }
 
     //methods open Activities
